@@ -3,1234 +3,1034 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Plumbing Services</title>
-  <script src="/_sdk/element_sdk.js"></script>
+  <title>Pro Plumbing Services - Expert Plumbers You Can Trust</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    body {
-      box-sizing: border-box;
+    body { box-sizing: border-box; }
+    * { font-family: 'Outfit', sans-serif; }
+    html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+    .main-wrapper { height: 100%; width: 100%; overflow-x: hidden; overflow-y: auto; }
+    
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+    
+    /* Header */
+    .site-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --deep-blue: #1e3a5f;
-      --silver: #c0c0c0;
-      --light-gray: #f5f5f5;
-      --white: #ffffff;
-      --accent-blue: #2563eb;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .app-container {
-      width: 100%;
-      min-height: 100%;
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    .page {
-      display: none;
-      min-height: 100%;
-      width: 100%;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .nav-header {
-      background: var(--deep-blue);
-      padding: 1.5rem 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
+    /* Navigation */
     .nav-link {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .hero-section {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 90, 143, 0.95) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3a5f" width="1200" height="600"/><g opacity="0.3"><circle cx="200" cy="150" r="80" fill="%23ffffff"/><circle cx="800" cy="400" r="60" fill="%23ffffff"/><circle cx="1000" cy="200" r="100" fill="%23ffffff"/><path d="M100,300 Q300,200 500,300 T900,300" stroke="%23ffffff" stroke-width="3" fill="none"/><rect x="150" y="450" width="120" height="100" rx="10" fill="%23ffffff"/><rect x="700" y="100" width="80" height="150" rx="10" fill="%23ffffff"/></g></svg>');
-      background-size: cover;
-      background-position: center;
-      padding: 5rem 2rem;
-      text-align: center;
-      color: var(--white);
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 1.25rem;
+      transition: all 0.2s;
       position: relative;
-      overflow: hidden;
     }
-
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #0ea5e9;
+      transform: translateX(-50%);
+      transition: width 0.3s;
     }
-
-    .hero-headline {
-      font-size: 3.5rem;
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    .nav-link:hover {
+      color: #0ea5e9;
     }
-
-    .hero-subheadline {
-      font-size: 1.5rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.95;
-      font-weight: 300;
+    .nav-link:hover::after {
+      width: 80%;
     }
-
-    .cta-button {
-      background: var(--accent-blue);
-      color: var(--white);
-      padding: 1.25rem 3rem;
-      font-size: 1.25rem;
+    
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      color: white;
+      padding: 1rem 2.5rem;
       font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-      display: inline-block;
-      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
     }
-
-    .cta-button:hover {
-      background: #1d4ed8;
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 6px 25px rgba(14, 165, 233, 0.5);
     }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: -3rem auto 0;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 3;
-    }
-
-    .feature-card {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .feature-title {
-      font-size: 1.25rem;
+    
+    .btn-secondary {
+      background: white;
+      color: #0ea5e9;
+      border: 2px solid #0ea5e9;
+      padding: 1rem 2.5rem;
       font-weight: 700;
-      color: var(--deep-blue);
-      margin-bottom: 0.5rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
     }
-
-    .feature-description {
-      color: #666;
-      line-height: 1.6;
+    .btn-secondary:hover {
+      background: #0ea5e9;
+      color: white;
+      transform: translateY(-2px);
     }
-
-    .section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--deep-blue);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      font-size: 1.25rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .service-card {
-      background: var(--light-gray);
-      padding: 2.5rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .service-card:hover {
-      border-color: var(--accent-blue);
-      background: var(--white);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .service-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .service-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--deep-blue);
-      margin-bottom: 1rem;
-    }
-
-    .service-description {
-      color: #666;
-      line-height: 1.7;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .about-text {
-      line-height: 1.8;
-      color: #333;
-      font-size: 1.125rem;
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .stat-card {
-      background: var(--deep-blue);
-      color: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    .team-section {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.05) 0%, rgba(245, 245, 245, 1) 100%);
-      padding: 4rem 2rem;
-      margin: 3rem 0;
-      border-radius: 20px;
+    
+    /* Hero Section */
+    .hero-gradient {
       position: relative;
       overflow: hidden;
     }
-
-    .team-image {
+    
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.3) 0%, transparent 50%);
+    }
+    
+    /* Service Cards */
+    .service-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #f1f5f9;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 400px;
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23f5f5f5" width="800" height="400"/><g opacity="0.4"><circle cx="150" cy="250" r="60" fill="%231e3a5f"/><circle cx="150" cy="180" r="40" fill="%231e3a5f"/><rect x="120" y="260" width="60" height="80" rx="5" fill="%232563eb"/><circle cx="400" cy="250" r="60" fill="%231e3a5f"/><circle cx="400" cy="180" r="40" fill="%231e3a5f"/><rect x="370" y="260" width="60" height="80" rx="5" fill="%232563eb"/><circle cx="650" cy="250" r="60" fill="%231e3a5f"/><circle cx="650" cy="180" r="40" fill="%231e3a5f"/><rect x="620" y="260" width="60" height="80" rx="5" fill="%232563eb"/><path d="M50,350 L750,350" stroke="%231e3a5f" stroke-width="3"/><text x="400" y="380" font-family="Arial" font-size="24" fill="%231e3a5f" text-anchor="middle" font-weight="bold">Our Professional Team</text></g></svg>');
-      background-size: cover;
-      background-position: center;
-      border-radius: 12px;
-      margin-bottom: 2rem;
+      height: 5px;
+      background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      border-color: #e0f2fe;
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .plumbing-showcase {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .showcase-image {
-      width: 100%;
-      height: 250px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .showcase-image::after {
-      content: attr(data-label);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      color: white;
-      padding: 1.5rem 1rem 1rem;
-      font-weight: 700;
-      font-size: 1.125rem;
-    }
-
-    .showcase-1 {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23e0e7ee" width="400" height="300"/><g opacity="0.6"><rect x="150" y="50" width="100" height="150" rx="10" fill="%231e3a5f"/><circle cx="200" cy="80" r="15" fill="%232563eb"/><rect x="180" y="110" width="40" height="60" fill="%232563eb"/><path d="M200,170 L200,220" stroke="%23ffffff" stroke-width="8"/><circle cx="200" cy="240" r="20" fill="%232563eb"/><path d="M120,200 Q200,180 280,200" stroke="%231e3a5f" stroke-width="4" fill="none"/></g></svg>');
-    }
-
-    .showcase-2 {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23e0e7ee" width="400" height="300"/><g opacity="0.6"><circle cx="200" cy="120" r="50" fill="%231e3a5f"/><circle cx="200" cy="120" r="30" fill="%232563eb"/><rect x="180" y="170" width="40" height="80" fill="%231e3a5f"/><path d="M100,250 L300,250" stroke="%232563eb" stroke-width="6"/><circle cx="150" cy="250" r="8" fill="%23ffffff"/><circle cx="250" cy="250" r="8" fill="%23ffffff"/></g></svg>');
-    }
-
-    .showcase-3 {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23e0e7ee" width="400" height="300"/><g opacity="0.6"><rect x="100" y="80" width="200" height="150" rx="15" fill="%231e3a5f"/><rect x="120" y="100" width="160" height="80" rx="10" fill="%232563eb"/><circle cx="200" cy="140" r="25" fill="%23ffffff"/><rect x="180" y="190" width="40" height="30" rx="5" fill="%23ffffff"/></g></svg>');
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-    }
-
-    .contact-form {
-      background: var(--light-gray);
-      padding: 3rem;
-      border-radius: 12px;
-    }
-
-    .form-group {
       margin-bottom: 1.5rem;
+      transition: all 0.4s;
     }
-
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: var(--deep-blue);
+    
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+      transform: scale(1.1) rotate(5deg);
     }
-
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      font-family: inherit;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
-    .submit-button {
-      background: var(--deep-blue);
-      color: var(--white);
-      padding: 1rem 2.5rem;
-      font-size: 1.125rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .submit-button:hover {
-      background: #152a45;
-      transform: translateY(-2px);
-    }
-
-    .submit-button:disabled {
-      background: #999;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .contact-info-card {
-      background: var(--light-gray);
-      padding: 2rem;
-      border-radius: 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-    }
-
-    .contact-icon {
-      font-size: 2.5rem;
-      color: var(--accent-blue);
-    }
-
-    .contact-details h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--deep-blue);
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-details p {
-      color: #666;
-      font-size: 1.125rem;
-    }
-
-    .footer {
-      background: var(--deep-blue);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 5rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .success-message {
-      background: #10b981;
+    
+    .service-card:hover .service-icon svg {
       color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      display: none;
     }
-
-    .success-message.show {
-      display: block;
-    }
-
-    .testimonial-section {
-      background: var(--light-gray);
-      padding: 4rem 2rem;
-      margin: 3rem 0;
-      border-radius: 20px;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .testimonial-card {
-      background: var(--white);
+    
+    /* Feature Boxes */
+    .feature-box {
+      background: white;
+      border-radius: 16px;
       padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    /* Form Styling */
+    .form-input, .form-select, .form-textarea {
+      border: 2px solid #e2e8f0;
+      padding: 1rem 1.25rem;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      position: relative;
+      transition: all 0.3s;
+      font-size: 1rem;
+      background: white;
     }
-
-    .testimonial-quote {
-      font-size: 3rem;
-      color: var(--accent-blue);
-      opacity: 0.3;
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
+    
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #dc2626;
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
     }
-
-    .testimonial-text {
-      font-style: italic;
-      color: #555;
-      line-height: 1.7;
-      margin: 2rem 0 1.5rem 0;
+    
+    /* Emergency Banner */
+    .emergency-banner {
+      background: linear-gradient(90deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #0ea5e9;
     }
-
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--deep-blue);
-      margin-bottom: 0.25rem;
-    }
-
-    .testimonial-role {
-      color: #999;
-      font-size: 0.9rem;
-    }
-
-    .guarantee-section {
-      background: var(--deep-blue);
-      color: var(--white);
-      padding: 3rem 2rem;
+    
+    /* Testimonial */
+    .testimonial-card {
+      background: white;
       border-radius: 20px;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .guarantee-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .guarantee-item {
-      padding: 1.5rem;
-    }
-
-    .guarantee-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .guarantee-title {
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .process-section {
-      margin: 4rem 0;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .process-step {
-      text-align: center;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       position: relative;
     }
-
+    
+    .quote-icon {
+      color: #e0f2fe;
+      font-size: 4rem;
+      line-height: 0;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s;
+      z-index: 1001;
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.open {
+      right: 0;
+    }
+    
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Process Steps */
+    .process-step {
+      position: relative;
+      padding-left: 5rem;
+    }
+    
     .step-number {
-      width: 60px;
-      height: 60px;
-      background: var(--accent-blue);
-      color: var(--white);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, #0ea5e9, #06b6d4);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.75rem;
-      font-weight: 900;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
     }
-
-    .step-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--deep-blue);
-      margin-bottom: 0.75rem;
+    
+    /* Trust Badges */
+    .trust-badge {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 2px solid #f1f5f9;
     }
-
-    .step-description {
-      color: #666;
-      line-height: 1.6;
+    
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-
-    @media (max-width: 768px) {
-      .hero-headline {
-        font-size: 2.25rem;
-      }
-
-      .hero-subheadline {
-        font-size: 1.125rem;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        margin-top: 2rem;
-      }
-
-      .about-content,
-      .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .about-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .section {
-        padding: 3rem 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-headline {
-        font-size: 1.75rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .nav-content {
-        flex-direction: column;
-        text-align: center;
-      }
+    
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div class="app-container"><!-- Navigation -->
-   <nav class="nav-header">
-    <div class="nav-content">
-     <div class="logo"><span>🔧</span> <span>ProFlow Plumbing</span>
-     </div>
-     <div class="nav-links"><a class="nav-link active" data-page="home">Home</a> <a class="nav-link" data-page="services">Services</a> <a class="nav-link" data-page="about">About Us</a> <a class="nav-link" data-page="contact">Contact</a>
-     </div>
-    </div>
-   </nav><!-- Home Page -->
-   <div class="page active" id="home">
-    <section class="hero-section">
-     <div class="hero-content">
-      <h1 class="hero-headline" id="hero-headline-text">Reliable Plumbing Services You Can Trust</h1>
-      <p class="hero-subheadline" id="hero-subheadline-text">Fast, affordable, and professional plumbing solutions</p><button class="cta-button" id="cta-button-home">Request a Free Quote</button>
-     </div>
-    </section>
-    <div class="features-grid">
-     <div class="feature-card">
-      <div class="feature-icon">
-       ⏰
-      </div>
-      <h3 class="feature-title">24/7 Emergency Service</h3>
-      <p class="feature-description">Available around the clock for urgent plumbing issues</p>
-     </div>
-     <div class="feature-card">
-      <div class="feature-icon">
-       ✅
-      </div>
-      <h3 class="feature-title">Licensed &amp; Insured</h3>
-      <p class="feature-description">Fully certified professionals you can trust</p>
-     </div>
-     <div class="feature-card">
-      <div class="feature-icon">
-       💰
-      </div>
-      <h3 class="feature-title">Free Estimates</h3>
-      <p class="feature-description">No-obligation quotes for all services</p>
+  <div class="main-wrapper" style="background: #f8fafc;"><!-- Emergency Top Bar -->
+   <div style="background: #0ea5e9; color: white; padding: 0.75rem 0; text-align: center;">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 0 1rem;">
+     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; font-size: 0.95rem; font-weight: 600;"><span>🚨 24/7 Emergency Service Available</span> <span style="color: rgba(255,255,255,0.3);">|</span> <a href="tel:1800PLUMBER" id="top-phone" style="color: white; display: flex; align-items: center; gap: 0.5rem;">
+       <svg style="width: 1.25rem; height: 1.25rem;" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+       </svg> 1-800-PLUMBER </a> <span style="color: rgba(255,255,255,0.3);">|</span> <span>⭐ Licensed &amp; Insured</span>
      </div>
     </div>
-    <section class="section">
-     <h2 class="section-title">Why Choose Us?</h2>
-     <p class="section-subtitle">We deliver quality plumbing solutions with exceptional customer service</p>
-     <div class="plumbing-showcase">
-      <div class="showcase-image showcase-1" data-label="Expert Installations"></div>
-      <div class="showcase-image showcase-2" data-label="Quality Repairs"></div>
-      <div class="showcase-image showcase-3" data-label="Modern Equipment"></div>
-     </div>
-    </section>
-    <div class="testimonial-section">
-     <h2 class="section-title">What Our Customers Say</h2>
-     <div class="testimonial-grid">
-      <div class="testimonial-card">
-       <div class="testimonial-quote">
-        "
+   </div><!-- Header -->
+   <header class="site-header sticky top-0 z-40">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem;">
+     <div style="display: flex; justify-content: space-between; align-items: center;"><!-- Logo -->
+      <div style="display: flex; align-items: center; gap: 1rem;">
+       <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #0ea5e9, #06b6d4); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);">
+        <svg style="width: 35px; height: 35px; color: white;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+        </svg>
        </div>
-       <p class="testimonial-text">ProFlow Plumbing saved the day! Our water heater failed on a Sunday morning, and they were here within an hour. Professional, courteous, and reasonably priced.</p>
-       <div class="testimonial-author">
-        Sarah Mitchell
+       <div>
+        <h1 id="header-business-name" style="font-size: 1.5rem; font-weight: 800; color: #1e293b; line-height: 1.2; margin: 0;">Pro Plumbing Services</h1>
+        <p style="font-size: 0.8rem; color: #64748b; margin: 0;">Expert Plumbing Since 2005</p>
        </div>
-       <div class="testimonial-role">
-        Homeowner, Downtown District
-       </div>
-      </div>
-      <div class="testimonial-card">
-       <div class="testimonial-quote">
-        "
-       </div>
-       <p class="testimonial-text">We've used ProFlow for all our commercial properties for 5 years. Their maintenance plans have prevented costly emergencies and their team is always reliable.</p>
-       <div class="testimonial-author">
-        James Rodriguez
-       </div>
-       <div class="testimonial-role">
-        Property Manager, Metro Buildings
-       </div>
-      </div>
-      <div class="testimonial-card">
-       <div class="testimonial-quote">
-        "
-       </div>
-       <p class="testimonial-text">Honest, transparent, and skilled. They diagnosed our drain issue quickly and fixed it right the first time. Highly recommend for anyone needing plumbing work.</p>
-       <div class="testimonial-author">
-        Emily Thompson
-       </div>
-       <div class="testimonial-role">
-        Homeowner, Oak Ridge
-       </div>
-      </div>
+      </div><!-- Desktop Navigation -->
+      <nav style="display: none; align-items: center; gap: 0.5rem;" class="desktop-nav"><a href="#home" class="nav-link">Home</a> <a href="#services" class="nav-link">Services</a> <a href="#about" class="nav-link">About</a> <a href="#contact" class="nav-link">Contact</a> <a href="#contact" class="btn-primary" style="margin-left: 1rem; display: inline-block;">Get Free Quote</a>
+      </nav><!-- Mobile Menu Button --> <button onclick="toggleMobileMenu()" style="display: block; padding: 0.5rem; background: none; border: none; cursor: pointer;" class="mobile-menu-btn">
+       <svg style="width: 2rem; height: 2rem; color: #1e293b;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
      </div>
     </div>
-    <div class="guarantee-section">
-     <h2 style="font-size: 2rem; margin-bottom: 1rem;">Our Commitment to You</h2>
-     <div class="guarantee-grid">
-      <div class="guarantee-item">
-       <div class="guarantee-icon">
-        ✓
+   </header><!-- Mobile Menu -->
+   <div id="mobile-overlay" class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+   <div id="mobile-menu" class="mobile-menu">
+    <div style="padding: 2rem; border-bottom: 1px solid #e2e8f0;">
+     <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin: 0;">Menu</h3><button onclick="toggleMobileMenu()" style="padding: 0.5rem; background: none; border: none; cursor: pointer;">
+       <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+     </div>
+    </div>
+    <div style="padding: 1.5rem;">
+     <div style="display: flex; flex-direction: column; gap: 0.5rem;"><a href="#home" onclick="toggleMobileMenu()" style="padding: 1rem; color: #1e293b; font-weight: 600; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'">Home</a> <a href="#services" onclick="toggleMobileMenu()" style="padding: 1rem; color: #1e293b; font-weight: 600; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'">Services</a> <a href="#about" onclick="toggleMobileMenu()" style="padding: 1rem; color: #1e293b; font-weight: 600; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'">About</a> <a href="#contact" onclick="toggleMobileMenu()" style="padding: 1rem; color: #1e293b; font-weight: 600; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='transparent'">Contact</a> <a href="#contact" onclick="toggleMobileMenu()" class="btn-primary" style="margin-top: 1rem; display: inline-block; text-align: center;">Get Free Quote</a>
+     </div>
+    </div>
+   </div><!-- Hero Section -->
+   <section id="home" class="hero-gradient" style="padding: 6rem 1.5rem; position: relative; background-image: url('https://i.ibb.co/VYvdZyt9/download.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(51, 65, 85, 0.75) 100%);"></div>
+    <div class="hero-pattern"></div>
+    <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 10;">
+     <div style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+       <div style="display: inline-block; background: rgba(14, 165, 233, 0.15); backdrop-filter: blur(10px); padding: 0.75rem 1.5rem; border-radius: 50px; margin-bottom: 2rem; border: 1px solid rgba(14, 165, 233, 0.3);"><span style="color: #f0f9ff; font-weight: 700; font-size: 0.95rem;">✓ Trusted by 10,000+ Homeowners</span>
        </div>
-       <div class="guarantee-title">
-        100% Satisfaction Guaranteed
-       </div>
-      </div>
-      <div class="guarantee-item">
-       <div class="guarantee-icon">
-        🛡️
-       </div>
-       <div class="guarantee-title">
-        Licensed &amp; Insured
-       </div>
-      </div>
-      <div class="guarantee-item">
-       <div class="guarantee-icon">
-        💎
-       </div>
-       <div class="guarantee-title">
-        Quality Parts &amp; Materials
-       </div>
-      </div>
-      <div class="guarantee-item">
-       <div class="guarantee-icon">
-        ⚡
-       </div>
-       <div class="guarantee-title">
-        Fast Response Times
+       <h1 id="hero-title" style="font-size: 3.75rem; font-weight: 900; color: white; margin-bottom: 1.5rem; line-height: 1.1;">Expert Plumbing Services You Can Trust</h1>
+       <p id="hero-subtitle" style="font-size: 1.35rem; color: #cbd5e1; margin-bottom: 2.5rem; line-height: 1.6;">24/7 Emergency Service • Licensed &amp; Insured • Same-Day Repairs</p>
+       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 3rem;"><a href="#contact" id="cta-button" class="btn-primary">Schedule Service</a> <a href="tel:1800PLUMBER" class="btn-secondary">Call Now</a>
+       </div><!-- Hero Visual -->
+       <div style="max-width: 600px; margin: 3rem auto; position: relative;">
+        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border-radius: 24px; padding: 3rem; border: 2px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+         <svg style="width: 100%; height: auto; max-width: 300px; margin: 0 auto; display: block;" viewbox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Wrench --> <path d="M160 60 L150 70 L130 50 L140 40 C145 35 155 35 160 40 C165 45 165 55 160 60 Z" fill="#ef4444" stroke="#dc2626" stroke-width="3" /> <rect x="115" y="65" width="35" height="80" transform="rotate(-45 132 105)" fill="#94a3b8" stroke="#64748b" stroke-width="3" rx="4" /> <!-- Pipe System --> <path d="M40 100 L80 100 L80 140 L120 140" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" fill="none" /> <circle cx="40" cy="100" r="8" fill="#dc2626" /> <circle cx="80" cy="100" r="8" fill="#cbd5e1" stroke="#94a3b8" stroke-width="2" /> <circle cx="80" cy="140" r="8" fill="#cbd5e1" stroke="#94a3b8" stroke-width="2" /> <!-- Water Drops --> <circle cx="100" cy="120" r="5" fill="#60a5fa" opacity="0.8">
+           <animate attributename="cy" values="120;130;120" dur="2s" repeatcount="indefinite" />
+           <animate attributename="opacity" values="0.8;0.3;0.8" dur="2s" repeatcount="indefinite" />
+          </circle> <circle cx="110" cy="115" r="4" fill="#60a5fa" opacity="0.6">
+           <animate attributename="cy" values="115;125;115" dur="2.5s" repeatcount="indefinite" />
+           <animate attributename="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatcount="indefinite" />
+          </circle> <!-- Tool Badge --> <circle cx="160" cy="160" r="25" fill="#dc2626" /> <path d="M150 160 L157 167 L170 150" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+         </svg>
+        </div>
+       </div><!-- Trust Indicators -->
+       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 4rem;">
+        <div style="text-align: center;">
+         <div style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+          18+
+         </div>
+         <div style="color: #cbd5e1; font-size: 0.95rem;">
+          Years Experience
+         </div>
+        </div>
+        <div style="text-align: center;">
+         <div style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+          10K+
+         </div>
+         <div style="color: #cbd5e1; font-size: 0.95rem;">
+          Happy Customers
+         </div>
+        </div>
+        <div style="text-align: center;">
+         <div style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+          24/7
+         </div>
+         <div style="color: #cbd5e1; font-size: 0.95rem;">
+          Emergency Service
+         </div>
+        </div>
+        <div style="text-align: center;">
+         <div style="font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+          100%
+         </div>
+         <div style="color: #cbd5e1; font-size: 0.95rem;">
+          Satisfaction
+         </div>
+        </div>
        </div>
       </div>
      </div>
     </div>
-   </div><!-- Services Page -->
-   <div class="page" id="services">
-    <section class="section">
-     <h2 class="section-title">Our Services</h2>
-     <p class="section-subtitle">Comprehensive plumbing solutions for residential and commercial properties</p>
-     <div class="services-grid">
-      <div class="service-card"><span class="service-icon">💧</span>
-       <h3 class="service-title">Leak Repairs</h3>
-       <p class="service-description">Fast detection and repair of all types of leaks, from minor drips to major pipe bursts. We use advanced leak detection equipment including thermal imaging and acoustic sensors to locate hidden leaks without damaging your property. Our experienced technicians can repair pipe leaks, faucet drips, toilet leaks, and slab leaks with precision and efficiency.</p>
+   </section><!-- Emergency Banner -->
+   <section class="emergency-banner" style="padding: 2rem 1.5rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+       <div style="width: 60px; height: 60px; background: #0ea5e9; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg style="width: 30px; height: 30px; color: white;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <div>
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin: 0 0 0.25rem 0;">Plumbing Emergency?</h3>
+        <p style="color: #64748b; margin: 0; font-size: 0.95rem;">We're available 24/7 for urgent repairs</p>
+       </div>
+      </div><a href="tel:1800PLUMBER" class="btn-primary" style="flex-shrink: 0;">Call Emergency Line</a>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" style="padding: 6rem 1.5rem; background-image: url('https://i.ibb.co/VYvdZyt9/download.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(255, 255, 255, 0.85);"></div>
+    <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
+     <div style="text-align: center; margin-bottom: 4rem;">
+      <div style="display: inline-block; background: #f0f9ff; color: #0ea5e9; padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">
+       OUR SERVICES
       </div>
-      <div class="service-card"><span class="service-icon">🚰</span>
-       <h3 class="service-title">Drain Cleaning</h3>
-       <p class="service-description">Professional drain cleaning services to clear clogs and restore proper flow. We handle kitchen sinks, bathroom drains, and main sewer lines using state-of-the-art hydro-jetting equipment and video camera inspections. From hair clogs to tree root intrusions, we clear it all safely and effectively without harsh chemicals.</p>
-      </div>
-      <div class="service-card"><span class="service-icon">🔥</span>
-       <h3 class="service-title">Water Heater Installation</h3>
-       <p class="service-description">Expert installation and replacement of water heaters. We work with all types including tankless, gas, electric, and heat pump models. Our team will help you select the right size and type for your needs, ensuring optimal energy efficiency and hot water availability. All installations include proper permitting and code compliance.</p>
-      </div>
-      <div class="service-card"><span class="service-icon">🚨</span>
-       <h3 class="service-title">Emergency Plumbing</h3>
-       <p class="service-description">24/7 emergency response for urgent plumbing issues. Fast arrival times (typically under 60 minutes) and immediate solutions to prevent water damage. We handle burst pipes, overflowing toilets, sewer backups, and gas leaks with urgency and expertise. No overtime charges for emergency calls.</p>
-      </div>
-      <div class="service-card"><span class="service-icon">🔧</span>
-       <h3 class="service-title">Pipe Repair &amp; Repiping</h3>
-       <p class="service-description">Complete pipe repair and replacement services for aging or damaged plumbing systems. We specialize in trenchless pipe repair methods that minimize disruption to your property. Whether you need a small section repaired or a whole-house repipe, we work efficiently with quality materials like PEX and copper.</p>
-      </div>
-      <div class="service-card"><span class="service-icon">🛁</span>
-       <h3 class="service-title">Fixture Installation</h3>
-       <p class="service-description">Professional installation of all plumbing fixtures including sinks, faucets, toilets, showers, bathtubs, and garbage disposals. We ensure proper installation for optimal performance and longevity. Bring us your fixtures or we can help you select quality products from trusted brands.</p>
+      <h2 style="font-size: 3rem; font-weight: 900; color: #1e293b; margin-bottom: 1rem;">Complete Plumbing Solutions</h2>
+      <p style="font-size: 1.15rem; color: #64748b; max-width: 700px; margin: 0 auto;">From routine maintenance to emergency repairs, we handle all your plumbing needs with expertise and care.</p>
+     </div>
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;"><!-- Service 1 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #0ea5e9; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Emergency Repairs</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Burst Pipe --> <rect x="30" y="60" width="140" height="20" fill="#cbd5e1" rx="4" /> <path d="M100 60 L95 50 L105 50 Z" fill="#cbd5e1" /> <!-- Water Splash --> <circle cx="100" cy="40" r="8" fill="#60a5fa" opacity="0.6">
+          <animate attributename="r" values="8;12;8" dur="1s" repeatcount="indefinite" />
+          <animate attributename="opacity" values="0.6;0.2;0.6" dur="1s" repeatcount="indefinite" />
+         </circle> <circle cx="90" cy="35" r="6" fill="#60a5fa" opacity="0.5">
+          <animate attributename="r" values="6;9;6" dur="1.2s" repeatcount="indefinite" />
+          <animate attributename="opacity" values="0.5;0.2;0.5" dur="1.2s" repeatcount="indefinite" />
+         </circle> <circle cx="110" cy="38" r="5" fill="#60a5fa" opacity="0.4">
+          <animate attributename="r" values="5;8;5" dur="0.9s" repeatcount="indefinite" />
+          <animate attributename="opacity" values="0.4;0.1;0.4" dur="0.9s" repeatcount="indefinite" />
+         </circle> <!-- Alert Badge --> <circle cx="160" cy="30" r="20" fill="#dc2626" /> <text x="160" y="38" text-anchor="middle" fill="white" font-size="24" font-weight="bold">
+          !
+         </text>
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Burst pipes, severe leaks, or no hot water? Our emergency team responds within 60 minutes, 24/7.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Burst pipe repair</li>
+        <li style="margin-bottom: 0.5rem;">Emergency leak fixes</li>
+        <li style="margin-bottom: 0.5rem;">24/7 availability</li>
+       </ul><a href="#contact" style="color: #0ea5e9; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
+      </div><!-- Service 2 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #0ea5e9; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Drain Cleaning</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Drain Pipe --> <ellipse cx="100" cy="40" rx="40" ry="8" fill="#cbd5e1" /> <rect x="60" y="40" width="80" height="60" fill="#cbd5e1" /> <ellipse cx="100" cy="100" rx="40" ry="8" fill="#94a3b8" /> <!-- Clog --> <circle cx="90" cy="60" r="8" fill="#64748b" /> <circle cx="105" cy="65" r="6" fill="#64748b" /> <circle cx="95" cy="72" r="7" fill="#64748b" /> <!-- Cleaning Tool --> <line x1="120" y1="20" x2="120" y2="90" stroke="#dc2626" stroke-width="4" /> <circle cx="120" cy="90" r="8" fill="#dc2626" /> <path d="M120 15 L115 25 L125 25 Z" fill="#dc2626" />
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Professional drain cleaning and clog removal using advanced equipment for lasting results.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Hydro jetting service</li>
+        <li style="margin-bottom: 0.5rem;">Video camera inspection</li>
+        <li style="margin-bottom: 0.5rem;">Preventative maintenance</li>
+       </ul><a href="#contact" style="color: #0ea5e9; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
+      </div><!-- Service 3 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #0ea5e9; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Water Heaters</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Water Heater Tank --> <rect x="70" y="30" width="60" height="90" fill="#cbd5e1" rx="8" /> <rect x="70" y="30" width="60" height="20" fill="#94a3b8" rx="8" /> <circle cx="100" cy="40" r="5" fill="#64748b" /> <!-- Heat Indicator --> <path d="M85 70 Q90 60 95 70 Q100 80 105 70 Q110 60 115 70" stroke="#dc2626" stroke-width="3" fill="none">
+          <animate attributename="opacity" values="1;0.5;1" dur="1.5s" repeatcount="indefinite" />
+         </path> <path d="M85 85 Q90 75 95 85 Q100 95 105 85 Q110 75 115 85" stroke="#ef4444" stroke-width="3" fill="none">
+          <animate attributename="opacity" values="0.5;1;0.5" dur="1.5s" repeatcount="indefinite" />
+         </path> <!-- Water Drops --> <circle cx="90" cy="55" r="3" fill="#60a5fa" opacity="0.7" /> <circle cx="110" cy="58" r="3" fill="#60a5fa" opacity="0.6" />
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Expert installation, repair, and maintenance for all types of water heating systems.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Tank &amp; tankless systems</li>
+        <li style="margin-bottom: 0.5rem;">Repairs &amp; replacement</li>
+        <li style="margin-bottom: 0.5rem;">Energy-efficient upgrades</li>
+       </ul><a href="#contact" style="color: #0ea5e9; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
+      </div><!-- Service 4 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #0ea5e9; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Bathroom Plumbing</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Sink --> <ellipse cx="100" cy="60" rx="50" ry="10" fill="#cbd5e1" /> <rect x="50" y="60" width="100" height="8" fill="#cbd5e1" /> <ellipse cx="100" cy="68" rx="50" ry="10" fill="#94a3b8" /> <!-- Faucet --> <rect x="95" y="30" width="10" height="30" fill="#64748b" rx="2" /> <ellipse cx="100" cy="30" rx="12" ry="8" fill="#64748b" /> <path d="M85 25 Q100 15 115 25" stroke="#64748b" stroke-width="4" fill="none" /> <!-- Water Flow --> <path d="M100 60 L100 70" stroke="#60a5fa" stroke-width="2" opacity="0.7">
+          <animate attributename="opacity" values="0.7;0.3;0.7" dur="1s" repeatcount="indefinite" />
+         </path> <circle cx="100" cy="75" r="4" fill="#60a5fa" opacity="0.5">
+          <animate attributename="r" values="4;6;4" dur="1s" repeatcount="indefinite" />
+          <animate attributename="opacity" values="0.5;0.2;0.5" dur="1s" repeatcount="indefinite" />
+         </circle>
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Complete bathroom plumbing services from fixture installation to complete renovations.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Toilet &amp; faucet repair</li>
+        <li style="margin-bottom: 0.5rem;">Shower installation</li>
+        <li style="margin-bottom: 0.5rem;">Bathroom remodeling</li>
+       </ul><a href="#contact" style="color: #0ea5e9; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
+      </div><!-- Service 5 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #0ea5e9; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Commercial Plumbing</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Building --> <rect x="60" y="30" width="80" height="90" fill="#cbd5e1" rx="4" /> <rect x="70" y="45" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="92.5" y="45" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="115" y="45" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="70" y="68" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="92.5" y="68" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="115" y="68" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="70" y="91" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="92.5" y="91" width="15" height="15" fill="#94a3b8" rx="2" /> <rect x="115" y="91" width="15" height="15" fill="#94a3b8" rx="2" /> <!-- Entrance --> <rect x="85" y="100" width="30" height="20" fill="#64748b" rx="2" /> <!-- Check Mark --> <circle cx="150" cy="40" r="18" fill="#dc2626" /> <path d="M142 40 L148 46 L158 34" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Reliable commercial plumbing services for businesses, offices, and multi-unit properties.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Commercial repairs</li>
+        <li style="margin-bottom: 0.5rem;">Maintenance contracts</li>
+        <li style="margin-bottom: 0.5rem;">Emergency service</li>
+       </ul><a href="#contact" style="color: #dc2626; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
+      </div><!-- Service 6 -->
+      <div class="service-card">
+       <div class="service-icon">
+        <svg style="width: 40px; height: 40px; color: #dc2626; transition: color 0.4s;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Pipe Repair &amp; Replacement</h3>
+       <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <svg style="width: 100%; height: auto; max-width: 200px; margin: 0 auto; display: block;" viewbox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Old Damaged Pipe --> <rect x="30" y="50" width="70" height="16" fill="#94a3b8" rx="3" /> <path d="M65 50 L60 40 L70 40 Z" fill="#94a3b8" /> <line x1="60" y1="66" x2="70" y2="66" stroke="#64748b" stroke-width="2" /> <!-- New Pipe --> <rect x="110" y="50" width="70" height="16" fill="#cbd5e1" rx="3" /> <circle cx="145" cy="58" r="3" fill="#94a3b8" /> <!-- Arrow --> <path d="M100 58 L105 58" stroke="#dc2626" stroke-width="3" stroke-linecap="round" /> <path d="M102 55 L105 58 L102 61" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /> <!-- Wrench --> <rect x="135" y="75" width="20" height="40" transform="rotate(-20 145 95)" fill="#64748b" rx="2" /> <circle cx="145" cy="75" r="6" fill="#64748b" />
+        </svg>
+       </div>
+       <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.7;">Modern pipe repair solutions including trenchless technology to minimize disruption.</p>
+       <ul style="color: #64748b; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">Leak detection</li>
+        <li style="margin-bottom: 0.5rem;">Pipe relining</li>
+        <li style="margin-bottom: 0.5rem;">Repiping services</li>
+       </ul><a href="#contact" style="color: #dc2626; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;" onmouseover="this.style.gap='1rem'" onmouseout="this.style.gap='0.5rem'"> Learn More 
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a>
       </div>
      </div>
-     <div class="process-section">
-      <h2 class="section-title">Our Service Process</h2>
-      <p class="section-subtitle">Simple, transparent, and customer-focused</p>
-      <div class="process-steps">
+    </div>
+   </section><!-- Why Choose Us -->
+   <section id="about" style="padding: 6rem 1.5rem; background-image: url('https://i.ibb.co/VYvdZyt9/download.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(248, 250, 252, 0.85));"></div>
+    <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
+     <div style="text-align: center; margin-bottom: 4rem;">
+      <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">
+       WHY CHOOSE US
+      </div>
+      <h2 style="font-size: 3rem; font-weight: 900; color: #1e293b; margin-bottom: 1rem;">The Pro Plumbing Difference</h2>
+      <p style="font-size: 1.15rem; color: #64748b; max-width: 700px; margin: 0 auto;">We're not just plumbers – we're your trusted partners in home maintenance.</p>
+     </div>
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+      <div class="feature-box">
+       <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #fee2e2, #fef2f2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <svg style="width: 35px; height: 35px; color: #dc2626;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Licensed &amp; Insured</h3>
+       <p style="color: #64748b; line-height: 1.7;">Fully licensed, bonded, and insured for your complete peace of mind and protection.</p>
+      </div>
+      <div class="feature-box">
+       <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #fee2e2, #fef2f2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <svg style="width: 35px; height: 35px; color: #dc2626;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">24/7 Availability</h3>
+       <p style="color: #64748b; line-height: 1.7;">Round-the-clock emergency service because plumbing problems don't wait.</p>
+      </div>
+      <div class="feature-box">
+       <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #fee2e2, #fef2f2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <svg style="width: 35px; height: 35px; color: #dc2626;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Upfront Pricing</h3>
+       <p style="color: #64748b; line-height: 1.7;">No hidden fees or surprises. You'll know the cost before we start the work.</p>
+      </div>
+      <div class="feature-box">
+       <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #fee2e2, #fef2f2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <svg style="width: 35px; height: 35px; color: #dc2626;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+        </svg>
+       </div>
+       <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Satisfaction Guaranteed</h3>
+       <p style="color: #64748b; line-height: 1.7;">We stand behind our work with a 100% satisfaction guarantee on all services.</p>
+      </div>
+     </div><!-- Our Process -->
+     <div style="background: white; border-radius: 24px; padding: 4rem 2rem; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);">
+      <h3 style="font-size: 2rem; font-weight: 800; color: #1e293b; text-align: center; margin-bottom: 1rem;">How We Work</h3>
+      <p style="text-align: center; color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem;">Our streamlined 4-step process ensures quality service every time.</p><!-- Process Illustration -->
+      <div style="max-width: 700px; margin: 0 auto 4rem;">
+       <svg style="width: 100%; height: auto;" viewbox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg"><!-- Step 1 --> <circle cx="100" cy="100" r="40" fill="#dc2626" /> <text x="100" y="115" text-anchor="middle" fill="white" font-size="32" font-weight="bold">
+         1
+        </text> <path d="M80 80 L120 80 L120 70 L100 60 L80 70 Z" fill="white" opacity="0.3" /> <!-- Arrow 1 --> <line x1="150" y1="100" x2="230" y2="100" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8,8" /> <path d="M220 95 L230 100 L220 105" fill="#cbd5e1" /> <!-- Step 2 --> <circle cx="280" cy="100" r="40" fill="#ef4444" /> <text x="280" y="115" text-anchor="middle" fill="white" font-size="32" font-weight="bold">
+         2
+        </text> <rect x="265" y="75" width="30" height="40" fill="white" opacity="0.3" rx="3" /> <!-- Arrow 2 --> <line x1="330" y1="100" x2="410" y2="100" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8,8" /> <path d="M400 95 L410 100 L400 105" fill="#cbd5e1" /> <!-- Step 3 --> <circle cx="460" cy="100" r="40" fill="#dc2626" /> <text x="460" y="115" text-anchor="middle" fill="white" font-size="32" font-weight="bold">
+         3
+        </text> <path d="M445 85 L475 85 L475 95 L445 95 Z M445 100 L475 100 L475 110 L445 110 Z" fill="white" opacity="0.3" /> <!-- Arrow 3 --> <line x1="510" y1="100" x2="590" y2="100" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8,8" /> <path d="M580 95 L590 100 L580 105" fill="#cbd5e1" /> <!-- Step 4 --> <circle cx="640" cy="100" r="40" fill="#ef4444" /> <text x="640" y="115" text-anchor="middle" fill="white" font-size="32" font-weight="bold">
+         4
+        </text> <path d="M625 95 L635 105 L655 80" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8" />
+       </svg>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
        <div class="process-step">
         <div class="step-number">
          1
         </div>
-        <h3 class="step-title">Contact Us</h3>
-        <p class="step-description">Call us or submit a request online. We'll schedule a convenient time for your service.</p>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Contact Us</h4>
+        <p style="color: #64748b; line-height: 1.7;">Call or submit a request. We'll respond quickly to understand your needs and schedule a convenient time.</p>
        </div>
        <div class="process-step">
         <div class="step-number">
          2
         </div>
-        <h3 class="step-title">Inspection</h3>
-        <p class="step-description">Our technician arrives on time, assesses the issue, and provides a detailed explanation.</p>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Diagnosis</h4>
+        <p style="color: #64748b; line-height: 1.7;">Our expert technician arrives promptly with professional equipment to assess the issue thoroughly.</p>
        </div>
        <div class="process-step">
         <div class="step-number">
          3
         </div>
-        <h3 class="step-title">Free Estimate</h3>
-        <p class="step-description">Receive a transparent, upfront price quote before any work begins. No hidden fees.</p>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Transparent Quote</h4>
+        <p style="color: #64748b; line-height: 1.7;">We provide a clear, upfront price with no hidden charges before starting any work on your property.</p>
        </div>
        <div class="process-step">
         <div class="step-number">
          4
         </div>
-        <h3 class="step-title">Expert Service</h3>
-        <p class="step-description">We complete the work efficiently using quality materials and proven techniques.</p>
+        <h4 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem;">Quality Repair</h4>
+        <p style="color: #64748b; line-height: 1.7;">We complete the work efficiently with precision and care, cleaning up thoroughly when finished.</p>
        </div>
       </div>
      </div>
-    </section>
-   </div><!-- About Page -->
-   <div class="page" id="about">
-    <section class="section">
-     <h2 class="section-title" id="about-headline-text">Trusted Plumbing Experts Since 1995</h2>
-     <div class="team-section">
-      <div class="team-image"></div>
-      <p style="text-align: center; color: #666; font-size: 1.125rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">Our experienced team of licensed plumbers brings decades of combined expertise to every job. From left to right: Our master plumber with 30 years of experience, our emergency response specialists, and our installation experts. Together, we're dedicated to serving our community with professionalism and care.</p>
+    </div>
+   </section><!-- Stats Section -->
+   <section class="stats-section" style="padding: 5rem 1.5rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+      <div class="stat-item">
+       <div style="font-size: 3.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+        18+
+       </div>
+       <div style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); font-weight: 600;">
+        Years in Business
+       </div>
+      </div>
+      <div class="stat-item">
+       <div style="font-size: 3.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+        10K+
+       </div>
+       <div style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); font-weight: 600;">
+        Happy Customers
+       </div>
+      </div>
+      <div class="stat-item">
+       <div style="font-size: 3.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+        50+
+       </div>
+       <div style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); font-weight: 600;">
+        Expert Plumbers
+       </div>
+      </div>
+      <div class="stat-item">
+       <div style="font-size: 3.5rem; font-weight: 900; color: white; margin-bottom: 0.5rem;">
+        100%
+       </div>
+       <div style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); font-weight: 600;">
+        Satisfaction Rate
+       </div>
+      </div>
      </div>
-     <div class="about-content">
-      <div class="about-text">
-       <p id="about-description-text">With over 25 years of experience, ProFlow Plumbing has been serving homes and businesses throughout the community with reliable, professional plumbing services.</p>
-       <p>Our team of licensed and insured plumbers is committed to delivering exceptional service and lasting solutions. We treat every job with the same level of care and attention to detail, whether it's a simple repair or a complex installation.</p>
-       <p>We believe in transparent pricing, quality workmanship, and building long-term relationships with our customers. Your satisfaction is our top priority.</p>
-       <p><strong>What Sets Us Apart:</strong></p>
-       <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 2;">
-        <li>EPA-certified water efficiency specialists</li>
-        <li>Background-checked and drug-tested technicians</li>
-        <li>Ongoing training in latest plumbing technologies</li>
-        <li>Fully stocked service vehicles for faster repairs</li>
-        <li>Upfront pricing with no hidden fees</li>
-        <li>Respect for your home - we wear booties and clean up thoroughly</li>
+    </div>
+   </section><!-- Testimonial -->
+   <section style="padding: 6rem 1.5rem; background-image: url('https://i.ibb.co/VYvdZyt9/download.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(248, 250, 252, 0.85);"></div>
+    <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 1;">
+     <div style="text-align: center; margin-bottom: 3rem;">
+      <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">
+       TESTIMONIALS
+      </div>
+      <h2 style="font-size: 3rem; font-weight: 900; color: #1e293b;">What Our Customers Say</h2>
+     </div>
+     <div class="testimonial-card">
+      <div class="quote-icon">
+       "
+      </div>
+      <div style="position: relative; z-index: 1;">
+       <p style="font-size: 1.25rem; color: #475569; line-height: 1.8; margin-bottom: 2rem; font-style: italic;">"Had a major leak at 2 AM and called their emergency line. A technician arrived within 45 minutes, fixed the problem quickly, and the pricing was exactly as quoted. Absolutely fantastic service �� highly recommend!"</p>
+       <div style="display: flex; align-items: center; gap: 1rem;">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">
+         JM
+        </div>
+        <div>
+         <div style="font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">
+          Jessica Martinez
+         </div>
+         <div style="color: #64748b; font-size: 0.95rem;">
+          Homeowner, Boston MA
+         </div>
+         <div style="color: #fbbf24; margin-top: 0.5rem;">
+          ★★★★★
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Form Section -->
+   <section id="contact" style="padding: 6rem 1.5rem; background-image: url('https://i.ibb.co/VYvdZyt9/download.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(255, 255, 255, 0.85);"></div>
+    <div style="max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;">
+     <div style="text-align: center; margin-bottom: 4rem;">
+      <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">
+       GET IN TOUCH
+      </div>
+      <h2 style="font-size: 3rem; font-weight: 900; color: #1e293b; margin-bottom: 1rem;">Request Service Today</h2>
+      <p style="font-size: 1.15rem; color: #64748b; max-width: 600px; margin: 0 auto;">Fill out the form below and we'll get back to you within 30 minutes during business hours.</p>
+     </div>
+     <div style="background: white; border-radius: 24px; padding: 3rem; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1); border: 1px solid #f1f5f9;">
+      <form id="contact-form" onsubmit="handleFormSubmit(event)">
+       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div><label for="name" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Full Name *</label> <input type="text" id="name" required class="form-input" style="width: 100%; color: #1e293b;" placeholder="John Smith">
+        </div>
+        <div><label for="phone" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Phone Number *</label> <input type="tel" id="phone" required class="form-input" style="width: 100%; color: #1e293b;" placeholder="(555) 123-4567">
+        </div>
+       </div>
+       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div><label for="email" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Email Address *</label> <input type="email" id="email" required class="form-input" style="width: 100%; color: #1e293b;" placeholder="john@email.com">
+        </div>
+        <div><label for="service" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Service Needed *</label> <select id="service" required class="form-select" style="width: 100%; color: #1e293b;"> <option value="">Select a service...</option> <option value="emergency">Emergency Repair</option> <option value="drain">Drain Cleaning</option> <option value="water-heater">Water Heater</option> <option value="bathroom">Bathroom Plumbing</option> <option value="commercial">Commercial Service</option> <option value="pipe-repair">Pipe Repair</option> <option value="other">Other</option> </select>
+        </div>
+       </div>
+       <div style="margin-bottom: 1.5rem;"><label for="address" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Service Address</label> <input type="text" id="address" class="form-input" style="width: 100%; color: #1e293b;" placeholder="123 Main Street, City, State ZIP">
+       </div>
+       <div style="margin-bottom: 2rem;"><label for="message" style="display: block; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Describe Your Issue *</label> <textarea id="message" required rows="5" class="form-textarea" style="width: 100%; color: #1e293b; resize: vertical;" placeholder="Please provide details about your plumbing issue..."></textarea>
+       </div><button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; display: block;">Request Service Now</button>
+      </form>
+     </div><!-- Contact Info -->
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;">
+      <div class="trust-badge">
+       <div style="width: 50px; height: 50px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <svg style="width: 25px; height: 25px; color: #dc2626;" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        </svg>
+       </div>
+       <h4 style="font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">Call Us</h4><a href="tel:1800PLUMBER" style="color: #dc2626; font-weight: 600; font-size: 1.1rem;">1-800-PLUMBER</a>
+       <p style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Available 24/7</p>
+      </div>
+      <div class="trust-badge">
+       <div style="width: 50px; height: 50px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <svg style="width: 25px; height: 25px; color: #dc2626;" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+       </div>
+       <h4 style="font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">Email Us</h4><a href="mailto:info@proplumbing.com" style="color: #dc2626; font-weight: 600;">info@proplumbing.com</a>
+       <p style="color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Response within 2 hours</p>
+      </div>
+      <div class="trust-badge">
+       <div style="width: 50px; height: 50px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <svg style="width: 25px; height: 25px; color: #dc2626;" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+        </svg>
+       </div>
+       <h4 style="font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">Visit Us</h4>
+       <p style="color: #64748b; font-weight: 600;">456 Plumbing Way</p>
+       <p style="color: #64748b; font-size: 0.9rem;">Boston, MA 02108</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer style="background: #1e293b; color: white; padding: 4rem 1.5rem 2rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+      <div>
+       <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+         <svg style="width: 28px; height: 28px; color: white;" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+         </svg>
+        </div>
+        <div>
+         <h3 id="footer-business-name" style="font-size: 1.25rem; font-weight: 800; margin: 0;">Pro Plumbing Services</h3>
+         <p style="font-size: 0.85rem; color: #94a3b8; margin: 0;">Since 2005</p>
+        </div>
+       </div>
+       <p style="color: #cbd5e1; line-height: 1.7; font-size: 0.95rem;">Your trusted partner for all plumbing needs. Licensed, insured, and committed to excellence.</p>
+      </div>
+      <div>
+       <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.1rem;">Quick Links</h4>
+       <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 0.75rem;"><a href="#home" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Home</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#services" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Services</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#about" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">About</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#contact" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Contact</a></li>
        </ul>
       </div>
-      <div class="about-stats">
-       <div class="stat-card">
-        <div class="stat-number">
-         25+
-        </div>
-        <div class="stat-label">
-         Years Experience
-        </div>
-       </div>
-       <div class="stat-card">
-        <div class="stat-number">
-         5000+
-        </div>
-        <div class="stat-label">
-         Happy Customers
-        </div>
-       </div>
-       <div class="stat-card">
-        <div class="stat-number">
-         24/7
-        </div>
-        <div class="stat-label">
-         Emergency Service
-        </div>
-       </div>
-       <div class="stat-card">
-        <div class="stat-number">
-         100%
-        </div>
-        <div class="stat-label">
-         Satisfaction Guaranteed
-        </div>
-       </div>
+      <div>
+       <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.1rem;">Services</h4>
+       <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 0.75rem;"><a href="#services" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Emergency Repairs</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#services" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Drain Cleaning</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#services" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Water Heaters</a></li>
+        <li style="margin-bottom: 0.75rem;"><a href="#services" style="color: #cbd5e1; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#cbd5e1'">Pipe Repair</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 style="font-weight: 700; margin-bottom: 1.5rem; font-size: 1.1rem;">Contact Info</h4>
+       <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+         <svg style="width: 20px; height: 20px; color: #dc2626; flex-shrink: 0; margin-top: 0.25rem;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+         </svg><a href="tel:1800PLUMBER" id="footer-phone" style="color: #cbd5e1;">1-800-PLUMBER</a></li>
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+         <svg style="width: 20px; height: 20px; color: #dc2626; flex-shrink: 0; margin-top: 0.25rem;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+         </svg><span style="color: #cbd5e1;">info@proplumbing.com</span></li>
+        <li style="display: flex; align-items: start; gap: 0.75rem;">
+         <svg style="width: 20px; height: 20px; color: #dc2626; flex-shrink: 0; margin-top: 0.25rem;" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+         </svg><span style="color: #cbd5e1;">456 Plumbing Way<br>
+          Boston, MA 02108</span></li>
+       </ul>
       </div>
      </div>
-     <div style="margin-top: 4rem;">
-      <h2 class="section-title">Our Service Areas</h2>
-      <p class="section-subtitle">Proudly serving the greater metro area and surrounding communities</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 2rem auto 0; text-align: center;">
-       <div style="padding: 1.5rem; background: var(--light-gray); border-radius: 12px;">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-         📍
-        </div><strong style="color: var(--deep-blue);">Downtown District</strong>
-       </div>
-       <div style="padding: 1.5rem; background: var(--light-gray); border-radius: 12px;">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-         📍
-        </div><strong style="color: var(--deep-blue);">North Suburbs</strong>
-       </div>
-       <div style="padding: 1.5rem; background: var(--light-gray); border-radius: 12px;">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-         📍
-        </div><strong style="color: var(--deep-blue);">South County</strong>
-       </div>
-       <div style="padding: 1.5rem; background: var(--light-gray); border-radius: 12px;">
-        <div style="font-size: 2rem; margin-bottom: 0.5rem;">
-         📍
-        </div><strong style="color: var(--deep-blue);">East Valley</strong>
-       </div>
+     <div style="border-top: 1px solid #334155; padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">© 2024 Pro Plumbing Services. All rights reserved.</p>
+      <div style="display: flex; gap: 1.5rem;"><a href="#" style="color: #94a3b8; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a> <a href="#" style="color: #94a3b8; font-size: 0.9rem; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a>
       </div>
      </div>
-    </section>
-   </div><!-- Contact Page -->
-   <div class="page" id="contact">
-    <section class="section">
-     <h2 class="section-title" id="contact-cta-text">Call Today for Fast Service</h2>
-     <p class="section-subtitle">Get in touch with us for a free quote or emergency service</p>
-     <div class="contact-container">
-      <div class="contact-form">
-       <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 1.5rem;">Request a Free Quote</h3>
-       <div class="success-message" id="success-message">
-        Thank you for your message! We'll get back to you within 24 hours.
-       </div>
-       <form id="contact-form">
-        <div class="form-group"><label for="name" class="form-label">Full Name</label> <input type="text" id="name" class="form-input" placeholder="John Smith" required>
-        </div>
-        <div class="form-group"><label for="email" class="form-label">Email Address</label> <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
-        </div>
-        <div class="form-group"><label for="phone" class="form-label">Phone Number</label> <input type="tel" id="phone" class="form-input" placeholder="(555) 123-4567" required>
-        </div>
-        <div class="form-group"><label for="service" class="form-label">Service Needed</label> <select id="service" class="form-input" required> <option value="">Select a service...</option> <option value="leak-repair">Leak Repair</option> <option value="drain-cleaning">Drain Cleaning</option> <option value="water-heater">Water Heater Service</option> <option value="emergency">Emergency Service</option> <option value="installation">Fixture Installation</option> <option value="other">Other</option> </select>
-        </div>
-        <div class="form-group"><label for="message" class="form-label">Message / Details</label> <textarea id="message" class="form-textarea" placeholder="Please describe the issue or service you need..." required></textarea>
-        </div><button type="submit" class="submit-button">Send Message</button>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666; text-align: center;">Or call us directly for immediate assistance</p>
-       </form>
-      </div>
-      <div class="contact-info">
-       <div class="contact-info-card">
-        <div class="contact-icon">
-         📞
-        </div>
-        <div class="contact-details">
-         <h3>Phone</h3>
-         <p id="phone-number-text" style="font-weight: 700; font-size: 1.5rem; color: var(--accent-blue);">(555) 123-4567</p>
-         <p style="font-size: 0.95rem; margin-top: 0.5rem;">Available 24/7 for emergencies</p>
-        </div>
-       </div>
-       <div class="contact-info-card">
-        <div class="contact-icon">
-         ✉️
-        </div>
-        <div class="contact-details">
-         <h3>Email</h3>
-         <p id="email-address-text" style="font-weight: 600;">info@proflowplumbing.com</p>
-         <p style="font-size: 0.95rem; margin-top: 0.5rem;">We respond within 24 hours</p>
-        </div>
-       </div>
-       <div class="contact-info-card">
-        <div class="contact-icon">
-         📍
-        </div>
-        <div class="contact-details">
-         <h3>Location</h3>
-         <p>Serving the Greater Metro Area</p>
-         <p style="font-size: 0.95rem; margin-top: 0.5rem;">Licensed in all surrounding counties</p>
-        </div>
-       </div>
-       <div class="contact-info-card">
-        <div class="contact-icon">
-         ⏰
-        </div>
-        <div class="contact-details">
-         <h3>Business Hours</h3>
-         <p><strong>Mon-Fri:</strong> 7:00 AM - 6:00 PM</p>
-         <p><strong>Sat:</strong> 8:00 AM - 4:00 PM</p>
-         <p><strong>Sun:</strong> Emergency Only</p>
-         <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--accent-blue); font-weight: 600;">24/7 Emergency Service Available</p>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div style="margin-top: 4rem; padding: 3rem; background: var(--light-gray); border-radius: 20px; text-align: center;">
-      <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 1rem;">Have a Plumbing Emergency?</h3>
-      <p style="font-size: 1.25rem; color: #666; margin-bottom: 2rem;">Don't wait! Call us now for immediate assistance.</p><a href="tel:5551234567" style="display: inline-block; background: var(--accent-blue); color: white; padding: 1.25rem 3rem; font-size: 1.5rem; font-weight: 700; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);"> 📞 (555) 123-4567 </a>
-     </div>
-    </section>
-   </div><!-- Footer -->
-   <footer class="footer">
-    <div class="footer-content">
-     <p>© 2024 ProFlow Plumbing. All rights reserved.</p>
-     <p style="margin-top: 1rem; opacity: 0.8;">Licensed &amp; Insured | Available 24/7</p>
     </div>
-   </footer>
+   </footer><!-- Success Toast -->
+   <div id="toast" style="position: fixed; bottom: 2rem; right: 2rem; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 1.25rem 2rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3); transform: translateY(200%); opacity: 0; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1000; display: flex; align-items: center; gap: 1rem; max-width: 400px;">
+    <svg style="width: 1.75rem; height: 1.75rem; flex-shrink: 0;" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg><span id="toast-message" style="font-weight: 600; font-size: 1rem;">Thank you! We'll contact you within 30 minutes.</span>
+   </div>
   </div>
   <script>
-    const defaultConfig = {
-      background_color: "#ffffff",
-      primary_color: "#1e3a5f",
-      accent_color: "#2563eb",
-      text_color: "#333333",
-      light_surface_color: "#f5f5f5",
-      hero_headline: "Reliable Plumbing Services You Can Trust",
-      hero_subheadline: "Fast, affordable, and professional plumbing solutions",
-      cta_button_text: "Request a Free Quote",
-      about_headline: "Trusted Plumbing Experts Since 1995",
-      about_description: "With over 25 years of experience, ProFlow Plumbing has been serving homes and businesses throughout the community with reliable, professional plumbing services.",
-      phone_number: "(555) 123-4567",
-      email_address: "info@proflowplumbing.com",
-      contact_cta: "Call Today for Fast Service",
-      font_family: "Inter",
-      font_size: 16
-    };
+  const defaultConfig = {
+    business_name: 'Pro Plumbing Services',
+    phone_number: '1-800-PLUMBER',
+    hero_title: 'Expert Plumbing Services You Can Trust',
+    hero_subtitle: '24/7 Emergency Service • Licensed & Insured • Same-Day Repairs',
+    cta_text: 'Schedule Service'
+  };
 
-    async function onConfigChange(config) {
-      const baseFont = config.font_family || defaultConfig.font_family;
-      const baseFontStack = `${baseFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
-      const baseSize = config.font_size || defaultConfig.font_size;
-      
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const primaryColor = config.primary_color || defaultConfig.primary_color;
-      const accentColor = config.accent_color || defaultConfig.accent_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const lightSurfaceColor = config.light_surface_color || defaultConfig.light_surface_color;
+  let leads = [];
+  let currentRecordCount = 0;
 
-      // Apply colors
-      document.documentElement.style.setProperty('--white', backgroundColor);
-      document.documentElement.style.setProperty('--deep-blue', primaryColor);
-      document.documentElement.style.setProperty('--accent-blue', accentColor);
-      document.documentElement.style.setProperty('--light-gray', lightSurfaceColor);
-      
-      document.body.style.fontFamily = baseFontStack;
-      document.body.style.fontSize = `${baseSize}px`;
-      document.body.style.color = textColor;
-      
-      // Update all text elements
-      document.getElementById('hero-headline-text').textContent = config.hero_headline || defaultConfig.hero_headline;
-      document.getElementById('hero-subheadline-text').textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
-      document.getElementById('cta-button-home').textContent = config.cta_button_text || defaultConfig.cta_button_text;
-      document.getElementById('about-headline-text').textContent = config.about_headline || defaultConfig.about_headline;
-      document.getElementById('about-description-text').textContent = config.about_description || defaultConfig.about_description;
-      document.getElementById('phone-number-text').textContent = config.phone_number || defaultConfig.phone_number;
-      document.getElementById('email-address-text').textContent = config.email_address || defaultConfig.email_address;
-      document.getElementById('contact-cta-text').textContent = config.contact_cta || defaultConfig.contact_cta;
-      
-      // Scale fonts
-      const heroHeadline = document.querySelector('.hero-headline');
-      heroHeadline.style.fontSize = `${baseSize * 2.2}px`;
-      
-      const heroSubheadline = document.querySelector('.hero-subheadline');
-      heroSubheadline.style.fontSize = `${baseSize * 1.5}px`;
-      
-      const sectionTitles = document.querySelectorAll('.section-title');
-      sectionTitles.forEach(title => {
-        title.style.fontSize = `${baseSize * 2}px`;
-      });
-      
-      const sectionSubtitles = document.querySelectorAll('.section-subtitle');
-      sectionSubtitles.forEach(subtitle => {
-        subtitle.style.fontSize = `${baseSize * 1.25}px`;
-      });
-      
-      const ctaButtons = document.querySelectorAll('.cta-button');
-      ctaButtons.forEach(btn => {
-        btn.style.fontSize = `${baseSize * 1.25}px`;
-      });
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-overlay');
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    toastMessage.textContent = message;
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+    
+    setTimeout(() => {
+      toast.style.transform = 'translateY(200%)';
+      toast.style.opacity = '0';
+    }, 5000);
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    if (currentRecordCount >= 999) {
+      showToast('Maximum requests reached. Please call us directly.');
+      return;
     }
+    
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    const leadData = {
+      id: Date.now().toString(),
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      address: document.getElementById('address').value,
+      message: document.getElementById('message').value,
+      createdAt: new Date().toISOString()
+    };
+    
+    if (window.dataSdk) {
+      const result = await window.dataSdk.create(leadData);
+      if (result.isOk) {
+        showToast('Thank you! We\'ll contact you within 30 minutes.');
+        document.getElementById('contact-form').reset();
+      } else {
+        showToast('Something went wrong. Please try calling us.');
+      }
+    } else {
+      showToast('Thank you! We\'ll contact you within 30 minutes.');
+      document.getElementById('contact-form').reset();
+    }
+    
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Request Service Now';
+  }
 
+  const dataHandler = {
+    onDataChanged(data) {
+      leads = data;
+      currentRecordCount = data.length;
+    }
+  };
+
+  async function onConfigChange(config) {
+    const businessName = config.business_name || defaultConfig.business_name;
+    const phoneNumber = config.phone_number || defaultConfig.phone_number;
+    const heroTitle = config.hero_title || defaultConfig.hero_title;
+    const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+    const ctaText = config.cta_text || defaultConfig.cta_text;
+    
+    const headerBusinessName = document.getElementById('header-business-name');
+    if (headerBusinessName) headerBusinessName.textContent = businessName;
+    
+    const footerBusinessName = document.getElementById('footer-business-name');
+    if (footerBusinessName) footerBusinessName.textContent = businessName;
+    
+    const topPhone = document.getElementById('top-phone');
+    if (topPhone) {
+      const phoneText = topPhone.childNodes[topPhone.childNodes.length - 1];
+      if (phoneText && phoneText.nodeType === Node.TEXT_NODE) {
+        phoneText.textContent = phoneNumber;
+      }
+    }
+    
+    const footerPhone = document.getElementById('footer-phone');
+    if (footerPhone) footerPhone.textContent = phoneNumber;
+    
+    const heroTitleEl = document.getElementById('hero-title');
+    if (heroTitleEl) heroTitleEl.textContent = heroTitle;
+    
+    const heroSubtitleEl = document.getElementById('hero-subtitle');
+    if (heroSubtitleEl) heroSubtitleEl.textContent = heroSubtitle;
+    
+    const ctaButton = document.getElementById('cta-button');
+    if (ctaButton) ctaButton.textContent = ctaText;
+  }
+
+  function mapToCapabilities(config) {
+    return {
+      recolorables: [],
+      borderables: [],
+      fontEditable: undefined,
+      fontSizeable: undefined
+    };
+  }
+
+  function mapToEditPanelValues(config) {
+    return new Map([
+      ['business_name', config.business_name || defaultConfig.business_name],
+      ['phone_number', config.phone_number || defaultConfig.phone_number],
+      ['hero_title', config.hero_title || defaultConfig.hero_title],
+      ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+      ['cta_text', config.cta_text || defaultConfig.cta_text]
+    ]);
+  }
+
+  async function initializeApp() {
     if (window.elementSdk) {
-      window.elementSdk.init({
+      await window.elementSdk.init({
         defaultConfig,
         onConfigChange,
-        mapToCapabilities: (config) => ({
-          recolorables: [
-            {
-              get: () => config.background_color || defaultConfig.background_color,
-              set: (value) => {
-                config.background_color = value;
-                window.elementSdk.setConfig({ background_color: value });
-              }
-            },
-            {
-              get: () => config.light_surface_color || defaultConfig.light_surface_color,
-              set: (value) => {
-                config.light_surface_color = value;
-                window.elementSdk.setConfig({ light_surface_color: value });
-              }
-            },
-            {
-              get: () => config.text_color || defaultConfig.text_color,
-              set: (value) => {
-                config.text_color = value;
-                window.elementSdk.setConfig({ text_color: value });
-              }
-            },
-            {
-              get: () => config.primary_color || defaultConfig.primary_color,
-              set: (value) => {
-                config.primary_color = value;
-                window.elementSdk.setConfig({ primary_color: value });
-              }
-            },
-            {
-              get: () => config.accent_color || defaultConfig.accent_color,
-              set: (value) => {
-                config.accent_color = value;
-                window.elementSdk.setConfig({ accent_color: value });
-              }
-            }
-          ],
-          borderables: [],
-          fontEditable: {
-            get: () => config.font_family || defaultConfig.font_family,
-            set: (value) => {
-              config.font_family = value;
-              window.elementSdk.setConfig({ font_family: value });
-            }
-          },
-          fontSizeable: {
-            get: () => config.font_size || defaultConfig.font_size,
-            set: (value) => {
-              config.font_size = value;
-              window.elementSdk.setConfig({ font_size: value });
-            }
-          }
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ["hero_headline", config.hero_headline || defaultConfig.hero_headline],
-          ["hero_subheadline", config.hero_subheadline || defaultConfig.hero_subheadline],
-          ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
-          ["about_headline", config.about_headline || defaultConfig.about_headline],
-          ["about_description", config.about_description || defaultConfig.about_description],
-          ["phone_number", config.phone_number || defaultConfig.phone_number],
-          ["email_address", config.email_address || defaultConfig.email_address],
-          ["contact_cta", config.contact_cta || defaultConfig.contact_cta]
-        ])
+        mapToCapabilities,
+        mapToEditPanelValues
       });
     }
+    
+    if (window.dataSdk) {
+      const result = await window.dataSdk.init(dataHandler);
+      if (!result.isOk) {
+        console.error('Failed to initialize Data SDK');
+      }
+    }
+    
+    // Show desktop nav on larger screens
+    const updateNav = () => {
+      const desktopNav = document.querySelector('.desktop-nav');
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      if (window.innerWidth >= 1024) {
+        if (desktopNav) desktopNav.style.display = 'flex';
+        if (mobileMenuBtn) mobileMenuBtn.style.display = 'none';
+      } else {
+        if (desktopNav) desktopNav.style.display = 'none';
+        if (mobileMenuBtn) mobileMenuBtn.style.display = 'block';
+      }
+    };
+    
+    updateNav();
+    window.addEventListener('resize', updateNav);
+  }
 
-    // Navigation
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const page = link.dataset.page;
-        
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        
-        document.getElementById(page).classList.add('active');
-        link.classList.add('active');
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-
-    // CTA Button
-    document.getElementById('cta-button-home').addEventListener('click', () => {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      
-      document.getElementById('contact').classList.add('active');
-      document.querySelector('[data-page="contact"]').classList.add('active');
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Contact Form
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const submitButton = e.target.querySelector('.submit-button');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Sending...';
-      
-      setTimeout(() => {
-        document.getElementById('success-message').classList.add('show');
-        e.target.reset();
-        submitButton.disabled = false;
-        submitButton.textContent = 'Send Message';
-        
-        setTimeout(() => {
-          document.getElementById('success-message').classList.remove('show');
-        }, 5000);
-      }, 1000);
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ba3dc6916a93b7f',t:'MTc2Nzc5MzE2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  initializeApp();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bc349b261043d31',t:'MTc2ODEyMjY5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
